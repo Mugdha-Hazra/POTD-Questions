@@ -1,6 +1,7 @@
 # POTD-Questions
-GFG potd
+## GFG potd
 
+## ------------------------------------------------------------------------------------------------
 # Bash Cheat Sheet
 
  A cheat sheet for bash commands.
