@@ -10,19 +10,28 @@ using namespace std;
 class Solution{
 public:
     string findLargest(int N, int S){
-        string ans = "";
-        if((N>1 && S==0) || N*9 < S) {
-            ans += "-1";
-            return ans;
+        // code here
+        string s;
+        if (S > N*9 || N > 1 && S == 0) {  // Covering the edge cases
+            return "-1";
         }
-        
-        for(int i=0; i<N; i++) {
-            int maxDigit = S>=9 ? 9 : S;
-            ans.push_back(maxDigit+'0');
-            S -= maxDigit;
-        }
-            
-        return ans;
+
+      // Applying greedy approach to reach the solution
+        while (N > 0) {
+            if (S == 0) {
+                s += '0';
+            }
+            else if (S > 9) {
+                s += '9';
+                S -= 9;
+            }
+            else {
+                s += ('0'+ S);
+                S = 0;
+            }
+            N--;
+        } 
+        return s;
     }
 };
 
