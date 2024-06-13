@@ -9,18 +9,30 @@ using namespace std;
 
 class Solution{
   public:
-    int countSubArrayProductLessThanK(const vector<int>& a, int n, long long k) {
-        int i = 0, j = 0, ans = 0;
-        long long prod = 1;
-        while(i < n && j < n){
-            prod *= a[j];
-            while(prod >= k && i <= j){
-                prod /= a[i++];
+    long long countSubArrayProductLessThanK(const vector<int>& a, int n, long long k) {
+        long long p = 1;
+        long long res = 0;
+        for (int start = 0, end = 0; end < n; end++) {
+    
+            // Move right bound by 1 step. Update the product.
+            p *= a[end];
+    
+            // Move left bound so guarantee that p is again
+            // less than k.
+            while (start < end && p >= k) p /= a[start++];
+    
+            // If p is less than k, update the counter.
+            // Note that this is working even for (start == end):
+            // it means that the previous window cannot grow
+            // anymore and a single array element is the only
+            // addendum.
+            if (p < k) {
+                int len = end - start + 1;
+                res += len;
             }
-            ans += (j-i+1);
-            j++;
         }
-        return ans;  
+    
+        return res;
     }
 };
 
