@@ -1,0 +1,61 @@
+Tenth Line
+Scripting
+Basic Shell Commands
+medium
+80.1% Success
+
+0
+
+0
+
+Bookmark
+The following command prints the top 10 lines of file named input
+
+cat input | head -n 10
+
+The following command prints the bottom 10 lines of file named input
+
+cat input | tail -n 10
+
+Can you somehow use the above information to print the 10th line of the file named input ?
+
+Example:
+
+Assume that the input contains the following:
+
+Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+Line 6
+Line 7
+Line 8
+Line 9
+Line 10
+Line 11
+Line 12
+Line 13
+Line 14
+Line 15
+Your bash script should output the following:
+
+Line 10
+__________________________________________________________________________________________________
+To print the 10th line of a file named input using the cat, head, and tail commands, you can combine these utilities in a pipeline. Here's a concise way to achieve this:
+
+bash
+Copy code
+#!/bin/bash
+
+cat input | head -n 10 | tail -n 1
+Explanation:
+cat input: Outputs the entire content of the file input.
+head -n 10: Takes the first 10 lines of the output from cat.
+tail -n 1: Takes the last line from the output of head, which is the 10th line of the original file.
+Usage:
+Save the script: Save it as script.sh or another name of your choice.
+Make it executable: Run chmod +x script.sh to make the script executable.
+Execute the script: Run ./script.sh to get the 10th line of the file.
+This script will print the 10th line from the input file.
+_______________________________________________________________________________________________
