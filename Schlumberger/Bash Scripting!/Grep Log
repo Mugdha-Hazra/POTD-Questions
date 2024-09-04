@@ -1,0 +1,48 @@
+Grep Log
+Scripting
+Basic Shell Commands
+medium
+82.7% Success
+
+0
+
+0
+
+Bookmark
+Given a log file named input. You have to write a bash script which prints all the lines which contains mysql commands.
+
+Note
+
+Assume that all the mysql commands start with mysql::.
+Example:
+
+Assume that the input has the following content:
+
+mysql:: SELECT * FROM courses;
+rails:: Course.all
+mysql:: SELECT id FROM courses;
+rails:: Course.pluck(:id)
+Then your bash script should output the following:
+
+mysql:: SELECT * FROM courses;
+mysql:: SELECT id FROM courses;
+Our engineers were able to write this much code, can you complete it for us?
+
+cat input | grep '^mysql::' 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+To complete the bash script that filters lines containing MySQL commands, you can use grep to match lines starting with mysql::. Here's the complete script:
+
+bash
+Copy code
+#!/bin/bash
+
+cat input | grep '^mysql::'
+Explanation:
+cat input: Outputs the contents of the file input.
+grep '^mysql::': Filters lines that start with mysql::. The ^ symbol indicates the start of the line, ensuring that only lines beginning with mysql:: are matched.
+Usage:
+Save the script: Save it as script.sh or another name of your choice.
+Make it executable: Run chmod +x script.sh to make the script executable.
+Execute the script: Run ./script.sh to see the output.
+This script will print all lines from the input file that contain MySQL commands, as specified.
